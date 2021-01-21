@@ -1,0 +1,52 @@
+<div>
+    <h2 mat-dialog-title>Add Players</h2>
+    <div mat-dialog-content>
+        <form class="m-4" [formGroup]="proForm" (ngSubmit)="onSubmit()">
+
+            <div class="row">
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+                    <mat-form-field class="example-full-width mb-3" appearance="outline" disabled>
+                        <mat-label>Unique Id</mat-label>
+                        <input matInput formControlName="unique_id" required>
+                        <mat-icon matSuffix>face</mat-icon>
+                    </mat-form-field>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+                    <mat-form-field class="example-full-width" appearance="outline">
+                        <mat-label>Country</mat-label>
+                        <mat-select formControlName="country" required>
+                            <mat-option [value]="'India'">
+                                India
+                            </mat-option>
+                        </mat-select>
+                        <mat-icon matSuffix>flag</mat-icon>
+                        <mat-error *ngIf="proForm.get('country').hasError('required')">
+                            Country is required
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+                    <mat-form-field class="example-full-width mb-3" appearance="outline" disabled>
+                        <mat-label>Playing Role</mat-label>
+                        <input matInput formControlName="playing_role" required>
+                        <mat-icon matSuffix>face</mat-icon>
+                    </mat-form-field>
+                </div>
+                <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-2">
+                    <mat-form-field class="example-full-width mb-3" appearance="outline" disabled>
+                        <mat-label>Batting</mat-label>
+                        <input matInput formControlName="batting" required>
+                        <mat-icon matSuffix>face</mat-icon>
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-2">
+                    <button class="mr-3" [disabled]="!proForm.valid " mat-raised-button color="primary">Save</button>
+                    <button type="button" mat-button (click)="closeDialog()">Cancel</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
